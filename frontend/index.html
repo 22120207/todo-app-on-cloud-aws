@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/todo-icon.svg">
+</head>
+
+<body>
+    <div class="container">
+        <div class="myTask">
+            <h2>My Tasks</h2>
+        </div>
+
+        <div class="contentContainer">
+            <p class="dateDisplay"></p>
+
+            <form class="inputContainer" action="">
+                <input class="inputTask" type="text" placeholder="Add a new task..." />
+                <input class="inputDueDate" type="date" />
+                <button class="addButton" type="submit">+</button>
+            </form>
+
+            <div class="filterBtns">
+                <button class="filterBtn" type="button">All</button>
+                <button class="filterBtn" type="button">Active</button>
+                <button class="filterBtn" type="button">Completed</button>
+                <button class="dueDateFilterBtn" type="button">
+                    <i class="fas fa-calendar-alt"></i> Due Date
+                </button>
+            </div>
+
+            <div class="listContainer">
+                <!-- Tasks will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

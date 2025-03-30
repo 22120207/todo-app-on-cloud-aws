@@ -1,0 +1,318 @@
+body {
+    background-color: rgba(234, 230, 230, 0.712);
+    padding-top: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button, input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.container {
+    background-color: white;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 70%;
+    min-width: 50%;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    padding-bottom: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.myTask {
+    border-radius: 10px;
+    color: white;
+    background-color: #4262e1;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 30px;
+}
+
+.dateDisplay {
+    display: flex;
+    font-size: 1rem;
+    opacity: 0.5;
+    font-style: italic;
+}
+
+.inputContainer {
+    background-color: rgba(234, 230, 230, 0.323);
+    margin: 0 auto;
+    width: 90%;
+    padding: 15px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    gap: 10px;
+}
+
+.inputTask {
+    border-style: none;
+    border-radius: 5px;
+    width: 60%;
+    padding: 10px 20px;
+    outline: none;
+}
+
+.inputDueDate {
+    border-style: none;
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.addButton {
+    border-radius: 50%;
+    border-style: none;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 3px 10px;
+    background-color: #4262e1;
+    transition: background-color 0.25s;
+}
+
+.addButton:hover {
+    background-color: rgba(116, 140, 234, 1);
+}
+
+.addButton:active {
+    background-color: rgba(116, 140, 234, 0.5);
+}
+
+.filterBtns {
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.filterBtn, .dueDateFilterBtn {
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid #e1e7ef;
+    padding: 5px 20px;
+    margin: 10px 10px;
+    margin-left: 0;
+    transition: all 0.3s ease;
+}
+
+.dueDateFilterBtn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filterBtn:hover, .dueDateFilterBtn:hover {
+    border-color: rgba(116, 140, 234, 1);
+    background-color: rgba(116, 140, 234, 1);
+    color: white;
+}
+
+.filterBtn:active, .dueDateFilterBtn:active {
+    border-color: rgba(116, 140, 234, 1);
+    background-color: rgba(116, 140, 234, 0.5);
+    color: white;
+}
+
+.visitedFilterButton {
+    border-color: rgba(116, 140, 234, 1) !important;
+    background-color: #4262e1 !important;
+    color: white;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.listContainer li {
+    width: 100%;
+}
+
+.taskList {
+    display: flex;
+    border: 1px solid #e1e7ef;
+    justify-content: space-between;
+    padding: 12px 20px;
+    margin: 10px 0;
+    min-height: 50px;
+    width: 90%;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: all 0.2s ease;
+}
+
+.taskList:hover {
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.task-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.due-date {
+    font-size: 0.85rem;
+    color: #666;
+    background-color: #f8f8f8;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.overdue {
+    border-left: 4px solid #ff5252;
+}
+
+.overdue-text {
+    color: #ff5252;
+    font-weight: bold;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.deleteButton, .editButton {
+    background-color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    transition: background-color 0.2s;
+}
+
+.deleteButton:hover, .editButton:hover {
+    background-color: #f1f1f1;
+}
+
+.delete-icon, .edit-icon {
+    width: 20px;
+    height: 20px;
+    user-select: none;
+    pointer-events: none;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: rgb(179, 179, 179);
+}
+
+.empty-list-message {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-style: italic;
+}
+
+.taskList label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.taskList input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+.taskList label span {
+    padding-left: 30px;
+}
+  
+.taskList label span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+  
+.taskList input[type="checkbox"]:checked + span::before {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+  
+.taskList input[type="checkbox"]:checked + span::after {
+    content: "✓";
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 12px;
+}
+  
+.taskList label:hover span::before {
+    border-color: #999;
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 95%;
+    }
+    
+    .task-details {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+    }
+    
+    .taskList {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px;
+    }
+    
+    .taskList label {
+        margin-bottom: 10px;
+    }
+}

@@ -1,2 +1,2 @@
-# todo-app-on-cloud-aws
-todo-app-on-cloud-aws
+# to-do-app
+To Do App
