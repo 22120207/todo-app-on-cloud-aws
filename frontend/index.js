@@ -130,7 +130,7 @@ async function toggleTaskComplete(id, completed) {
         const updatedTask = await response.json();
         
         // Update task in local array
-        const taskIndex = tasks.findIndex(task => task._id === id);
+        const taskIndex = tasks.findIndex(task => task.id === id);
         if (taskIndex !== -1) {
             tasks[taskIndex] = updatedTask;
         }
@@ -153,7 +153,7 @@ async function deleteTask(id) {
         }
         
         // Remove task from local array
-        tasks = tasks.filter(task => task._id !== id);
+        tasks = tasks.filter(task => task.id !== id);
         
         updateTasks();
     } catch (error) {
@@ -164,7 +164,7 @@ async function deleteTask(id) {
 // Edit a task
 async function editTask(id) {
     // Find the task
-    const task = tasks.find(task => task._id === id);
+    const task = tasks.find(task => task.id === id);
     if (!task) return;
     
     // Prompt for new task text
@@ -196,7 +196,7 @@ async function editTask(id) {
         const updatedTask = await response.json();
         
         // Update task in local array
-        const taskIndex = tasks.findIndex(task => task._id === id);
+        const taskIndex = tasks.findIndex(task => task.id === id);
         if (taskIndex !== -1) {
             tasks[taskIndex] = updatedTask;
         }
@@ -299,17 +299,17 @@ function updateTasks() {
         const taskList = document.createElement('li');
         taskList.innerHTML = `
             <div class="taskList ${task.completed ? "completed" : ""} ${isTaskOverdue && !task.completed ? "overdue" : ""}">
-                <label for="task-${task._id}">
-                    <input id="task-${task._id}" type="checkbox" ${task.completed ? "checked" : ""}/>
+                <label for="task-${task.id}">
+                    <input id="task-${task.id}" type="checkbox" ${task.completed ? "checked" : ""}/>
                     <span>${task.title}</span>
                 </label>
                 <div class="task-details">
                     <span class="due-date ${isTaskOverdue && !task.completed ? "overdue-text" : ""}">${formattedDueDate}</span>
                     <div class="task-actions">
-                        <button class="editButton" onclick="editTask('${task._id}')">
+                        <button class="editButton" onclick="editTask('${task.id}')">
                             <img src="./assets/edit-icon.svg" alt="Edit" class="edit-icon">
                         </button>
-                        <button class="deleteButton" onclick="deleteTask('${task._id}')">
+                        <button class="deleteButton" onclick="deleteTask('${task.id}')">
                             <img src="./assets/delete.svg" alt="Delete" class="delete-icon">
                         </button>
                     </div>
@@ -322,9 +322,9 @@ function updateTasks() {
     
     // Add event listeners to checkboxes
     filteredTasks.forEach(task => {
-        const checkbox = document.querySelector(`input[id="task-${task._id}"]`);
+        const checkbox = document.querySelector(`input[id="task-${task.id}"]`);
         if (checkbox) {
-            checkbox.addEventListener("change", () => toggleTaskComplete(task._id, task.completed));
+            checkbox.addEventListener("change", () => toggleTaskComplete(task.id, task.completed));
         }
     });
 }
