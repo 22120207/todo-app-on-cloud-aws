@@ -9,7 +9,7 @@ import logger from "./logger";
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = Number(process.env.PORT) || 3000;
 
 // Connect to DynamoDB
 connectToDatabase().catch((error) => {
@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: "*",
-    methods: ["GET", "POST", "PATCH", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
@@ -40,7 +40,7 @@ app.get("/", (_: Request, res: Response) => {
   res.send("Hello from the server!");
 });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   logger.info(`[server]: Server is running at [http://localhost:${port}]`);
   logger.info(`[Server]: Using Ctrl + C to shut down the server\n`);
 });
